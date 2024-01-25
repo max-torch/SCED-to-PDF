@@ -18,6 +18,8 @@ SHEET_SIZES = {
     "Legal": (2550, 4200),
 }
 CARD_SIZES = {"standard": (734, 1045), "mini": (500, 734)}
+
+# Define common card back urls
 COMMON_ENCOUNTER_BACK_URL = "https://i.imgur.com/sRsWiSG.jpg/"
 COMMON_PLAYER_BACK_URL = "https://i.imgur.com/EcbhVuh.jpg/"
 
@@ -476,16 +478,23 @@ def extract_images(args):
 
 
 def arrange_images(images, args):
+    def convert_size_to_new_dpi(size, old_dpi, new_dpi):
+        ratio = new_dpi / old_dpi
+        return (int(size[0] * ratio), int(size[1] * ratio))
+    
+    dpi = args.dpi
+    converted_card_sizes = {key: convert_size_to_new_dpi(value, 300, dpi) for key, value in CARD_SIZES.items()}
+    converted_sheet_sizes = {key: convert_size_to_new_dpi(value, 300, dpi) for key, value in SHEET_SIZES.items()}
+
     # Define the size of the images and the page (in pixels)
     if args.custom_image_size:
         image_size = tuple(int(x) for x in args.custom_image_size)
     elif args.image_size:
-        image_size = CARD_SIZES[args.image_size]
+        image_size = converted_card_sizes[args.image_size]
     else:
-        image_size = CARD_SIZES["standard"]
+        image_size = converted_card_sizes["standard"]
 
-    dpi = args.dpi
-    page_size = SHEET_SIZES[args.sheet_size]
+    page_size = converted_sheet_sizes[args.sheet_size]
     margin_size = int(args.margin_size)
 
     # Calculate how many images fit on a page, considering the margin
@@ -555,6 +564,11 @@ def arrange_images(images, args):
         current_page.info["dpi"] = (dpi, dpi)
         pages.append(current_page)
         logging.info(f"Created page {len(pages)}")
+
+    # Save all pages as PNG files
+    for i, page in enumerate(pages):
+        page.save(f"tts_extract_out_{i}.png", "PNG")
+        logging.info(f"Saved page {i}")
 
     # Save all pages into a single PDF file
     pages[0].save(
