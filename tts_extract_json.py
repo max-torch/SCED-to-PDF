@@ -581,6 +581,12 @@ def main():
     images = extract_images(args)
     logging.info("Successfully extracted images")
 
+    # Write a csv containing the keys of the images dictionary
+    with open("tts_extract_out_manifest.csv", "w") as f:
+        f.write("image_id\n")
+        for key in images.keys():
+            f.write(f"{key}\n")
+
     # Arrange the images into a single pdf
     arrange_images(images, args)
 
