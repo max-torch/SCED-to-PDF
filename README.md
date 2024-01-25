@@ -25,7 +25,7 @@
 11. The "Back card extraction" option toggles whether the backs of cards will be included in the output.
 12. The 'Exclude player card back' and 'Exclude encounter card back' options control whether the purple player card back or the yellow encounter card back, of each card, will be included in the output PDF.
 13. When you are satisfied with all of your chosen options, you can press "Start Script" to begin producing your PDF. The GUI window will remain onscreen and automatically close once the script is done running. You can also follow along with the printed statements to the console, especially if the "Verbose" option is enabled. The generated file will be in the root directory of the project with the name `tts_extract_out.pdf`.
-14. A file called `tts_extract_out_manifest.csv` will be generated containing a record of all the images, including their duplicates, that were included in the resulting .pdf file.
+14. A file called `tts_extract_out_manifest.csv` will be generated containing a record of all the cards, including their duplicates, that were included in the resulting .pdf file.
 
 ## Related Literature
 
