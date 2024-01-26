@@ -575,11 +575,6 @@ def arrange_images(images, args):
         pages.append(current_page)
         logging.info(f"Created page {len(pages)}")
 
-    # Save all pages as PNG files
-    for i, page in enumerate(pages):
-        page.save(f"tts_extract_out_{i}.png", "PNG")
-        logging.info(f"Saved page {i}")
-
     # Save all pages into a single PDF file
     pages[0].save(
         "tts_extract_out.pdf",
