@@ -497,12 +497,11 @@ def arrange_images(images, args):
     page_size = converted_sheet_sizes[args.sheet_size]
     margin_size = int(args.margin_size)
 
-    # Resize the first image based on height while maintaining aspect ratio
+    # Calculate new width of first image based on the new height while maintaining aspect ratio
     first_image = list(images.values())[0]
     width, height = first_image.size
     new_height = image_size[1]
     new_width = int((new_height / height) * width)
-    resized_first_image = first_image.resize((new_width, new_height), Image.LANCZOS)
 
     # Use the actual new width of the first image for calculations
     image_size = (new_width, image_size[1])
