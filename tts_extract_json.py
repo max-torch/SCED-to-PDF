@@ -6,7 +6,10 @@ import sys
 import tkinter as tk
 from tkinter import filedialog, BooleanVar
 
-from PIL import Image
+import cv2
+import numpy as np
+import pytesseract
+from PIL import Image, ImageFilter
 import requests
 from urllib.request import urlopen
 
@@ -42,6 +45,7 @@ def parse_args():
     dpi = tk.IntVar(value=300)
     exclude_player_card_backs = BooleanVar()
     exclude_encounter_card_backs = BooleanVar()
+    sharpen_text = BooleanVar()  # Checkbox for sharpening text
 
     # Read the cache path from cachepath.txt if it exists
     if os.path.exists("cachepath.txt"):
@@ -200,6 +204,13 @@ def parse_args():
     )
     exclude_encounter_card_backs_checkbox.pack(pady=5, padx=5, anchor='w')
 
+    sharpen_text_checkbox = tk.Checkbutton(  # Checkbox for sharpening text
+        window,
+        text="Sharpen Text (Experimental)",
+        variable=sharpen_text,
+    )
+    sharpen_text_checkbox.pack(pady=5, padx=5, anchor='w')
+
     # Create a button to start the script
     args = argparse.Namespace()
 
@@ -228,6 +239,7 @@ def parse_args():
         args.dpi = dpi.get()
         args.exclude_player_card_backs = exclude_player_card_backs.get()
         args.exclude_encounter_card_backs = exclude_encounter_card_backs.get()
+        args.sharpen_text = sharpen_text.get()  # Store the value of sharpen_text
 
         window.quit()
 
@@ -539,6 +551,37 @@ def arrange_images(images, args):
         new_height = image_size[1]
         new_width = int((new_height / height) * width)
         extracted_image = extracted_image.resize((new_width, new_height), Image.LANCZOS)
+
+        if args.sharpen_text:  # Sharpen the image if the checkbox is checked
+
+            # Convert PIL Image to OpenCV format
+            extracted_image_cv = np.array(extracted_image)
+
+            # Convert the image to grayscale
+            gray = cv2.cvtColor(extracted_image_cv, cv2.COLOR_BGR2GRAY)
+
+            # Use Tesseract to detect text regions
+            data = pytesseract.image_to_data(gray, output_type=pytesseract.Output.DICT)
+            n_boxes = len(data["level"])
+            mask = np.zeros_like(extracted_image_cv)
+            for i in range(n_boxes):
+                (x, y, w, h) = (
+                    data["left"][i],
+                    data["top"][i],
+                    data["width"][i],
+                    data["height"][i],
+                )
+                mask[y : y + h, x : x + w] = 1
+
+            # Sharpen the entire image
+            blurred = cv2.GaussianBlur(extracted_image_cv, (3, 3), 0)
+            sharpened = cv2.addWeighted(extracted_image_cv, 2.0, blurred, -1.0, 0)
+
+            # Apply sharpening to only the text regions
+            extracted_image_cv = extracted_image_cv * (1 - mask) + sharpened * mask
+
+            # Convert the image back to PIL Image format
+            extracted_image = Image.fromarray(extracted_image_cv)
 
         # Paste the image onto the current page
         current_page.paste(

@@ -5,6 +5,7 @@
 1. Python must be installed.
 2. The Python installation must include `tkinter`.
 3. Install dependencies. `pip install -r requirements.txt`.
+4. If using the "sharpen text" feature, you need to [install Tesseract](https://github.com/tesseract-ocr/tesseract#installing-tesseract)
 
 ## Interface and Usage
 
@@ -24,8 +25,9 @@
 10. The "Verbose" option toggles the amount of informational statements that are printed to the terminal console while the script is running.
 11. The "Back card extraction" option toggles whether the backs of cards will be included in the output.
 12. The 'Exclude player card back' and 'Exclude encounter card back' options control whether the purple player card back or the yellow encounter card back, of each card, will be included in the output PDF.
-13. When you are satisfied with all of your chosen options, you can press "Start Script" to begin producing your PDF. The GUI window will remain onscreen and automatically close once the script is done running. You can also follow along with the printed statements to the console, especially if the "Verbose" option is enabled. The generated file will be in the root directory of the project with the name `tts_extract_out.pdf`.
-14. A file called `tts_extract_out_manifest.csv` will be generated containing a record of all the cards, including their duplicates, that were included in the resulting .pdf file.
+13. The experimental "Sharpen Text" option uses Google Tesseract to perform Optical Character Recognition (OCR) to detect text on cards; and Open Computer Vision to perform preprocessing before the OCR to improve text detection accuracy, and sharpening on the detected text.
+14. When you are satisfied with all of your chosen options, you can press "Start Script" to begin producing your PDF. The GUI window will remain onscreen and automatically close once the script is done running. You can also follow along with the printed statements to the console, especially if the "Verbose" option is enabled. The generated file will be in the root directory of the project with the name `tts_extract_out.pdf`.
+15. A file called `tts_extract_out_manifest.csv` will be generated containing a record of all the cards, including their duplicates, that were included in the resulting .pdf file.
 
 ## Related Literature
 
