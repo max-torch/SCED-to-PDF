@@ -359,6 +359,9 @@ def extract_sced_card(
 
 
 def extract_images(args):
+    if args.card_quantity_source == "arkhamdb":
+        all_cards_data = json.load(open('cards.json', "r"))
+    
     # Load the JSON data
     data = json.load(open(args.filepath, "r"))
 
@@ -405,10 +408,9 @@ def extract_images(args):
         if args.card_quantity_source == "arkhamdb":
             # Using arkhamdb_id, get the quantity of the card using the ArkhamDB API
             if arkhamdb_id:
-                response = requests.get(
-                    f"https://arkhamdb.com/api/public/card/{arkhamdb_id}"
+                card_data = next(
+                    (item for item in all_cards_data if item["code"] == arkhamdb_id), None
                 )
-                card_data = response.json()
                 quantity = card_data["quantity"] if "quantity" in card_data else 1
                 pack_code = card_data["pack_code"] if "pack_code" in card_data else None
             else:
