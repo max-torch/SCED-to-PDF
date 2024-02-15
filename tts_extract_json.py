@@ -417,10 +417,6 @@ def extract_images(args):
                 quantity = 1
                 pack_code = None
 
-            # If the card comes from either the core set or revised core set, do not append it to the list
-            if pack_code in ["core", "rcore"]:
-                continue
-
             for i in range(quantity):
                 images[f"{arkhamdb_id}_{i}"] = face_card
                 logging.info(f"Added face card from the {pack_code} pack for {each['Nickname']}")
