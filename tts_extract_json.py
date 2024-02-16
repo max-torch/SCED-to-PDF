@@ -5,6 +5,7 @@ import os
 import sys
 import tkinter as tk
 from tkinter import filedialog, BooleanVar
+import webbrowser
 
 import cv2
 import numpy as np
@@ -648,6 +649,9 @@ def main():
 
     # Arrange the images into a single pdf
     arrange_images(images, args)
+
+    # Open the pdf file
+    webbrowser.open("tts_extract_out.pdf")
 
 
 if __name__ == "__main__":
