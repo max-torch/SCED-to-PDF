@@ -60,7 +60,7 @@ def parse_args():
     select_file_button = tk.Button(
         window, text="Select TTS Object file", command=select_file
     )
-    select_file_button.pack(pady=10, padx=10, anchor='w')
+    select_file_button.pack(pady=10, padx=10, anchor="w")
 
     # Create a button to select the cache folder of tabletop simulator
     def select_cache_folder():
@@ -71,7 +71,7 @@ def parse_args():
     select_cache_folder_button = tk.Button(
         window, text="Select TTS mod images cache folder", command=select_cache_folder
     )
-    select_cache_folder_button.pack(pady=10, padx=10, anchor='w')
+    select_cache_folder_button.pack(pady=10, padx=10, anchor="w")
 
     # Add a separator
     separator = tk.Frame(window, height=2, bd=1, relief=tk.SUNKEN)
@@ -79,20 +79,20 @@ def parse_args():
 
     # Add a label
     label = tk.Label(window, text="Select Card Quantity Source:")
-    label.pack(pady=5, padx=5, anchor='w')
+    label.pack(pady=5, padx=5, anchor="w")
 
     # Create radio buttons for the card quantity source
     arkhamdb_radio = tk.Radiobutton(
         window, text="ArkhamDB", variable=card_quantity_source, value="arkhamdb"
     )
-    arkhamdb_radio.pack(pady=5, padx=5, anchor='w')
+    arkhamdb_radio.pack(pady=5, padx=5, anchor="w")
     tts_object_radio = tk.Radiobutton(
         window,
         text="TTS Saved Object",
         variable=card_quantity_source,
         value="tts_saved_object",
     )
-    tts_object_radio.pack(pady=5, padx=5, anchor='w')
+    tts_object_radio.pack(pady=5, padx=5, anchor="w")
 
     # Add a separator between the radio groups
     separator = tk.Frame(window, height=2, bd=1, relief=tk.SUNKEN)
@@ -100,15 +100,15 @@ def parse_args():
 
     # Add a label
     label = tk.Label(window, text="Select Preset Card Size:")
-    label.pack(pady=5, padx=5, anchor='w')
+    label.pack(pady=5, padx=5, anchor="w")
 
     # Create radio buttons for the image size
     standard_radio = tk.Radiobutton(
         window, text="Standard", variable=image_size, value="standard"
     )
-    standard_radio.pack(pady=5, padx=5, anchor='w')
+    standard_radio.pack(pady=5, padx=5, anchor="w")
     mini_radio = tk.Radiobutton(window, text="Mini", variable=image_size, value="mini")
-    mini_radio.pack(pady=5, padx=5, anchor='w')
+    mini_radio.pack(pady=5, padx=5, anchor="w")
 
     # Add a separator
     separator = tk.Frame(window, height=2, bd=1, relief=tk.SUNKEN)
@@ -116,28 +116,28 @@ def parse_args():
 
     # Create entry fields for the custom image size
     custom_size_frame = tk.Frame(window)
-    custom_size_frame.pack(pady=5, padx=5, anchor='w')
+    custom_size_frame.pack(pady=5, padx=5, anchor="w")
 
     custom_size_label = tk.Label(custom_size_frame, text="Custom Card Size:")
-    custom_size_label.pack(side=tk.TOP, anchor='w')
+    custom_size_label.pack(side=tk.TOP, anchor="w")
 
     custom_size_width_frame = tk.Frame(custom_size_frame)
-    custom_size_width_frame.pack(side=tk.TOP, anchor='w')
+    custom_size_width_frame.pack(side=tk.TOP, anchor="w")
     custom_size_width_label = tk.Label(custom_size_width_frame, text="Width:")
-    custom_size_width_label.pack(side=tk.LEFT, anchor='w')
+    custom_size_width_label.pack(side=tk.LEFT, anchor="w")
     custom_size_width_entry = tk.Entry(
         custom_size_width_frame, textvariable=custom_image_size[0]
     )
-    custom_size_width_entry.pack(side=tk.LEFT, anchor='w')
+    custom_size_width_entry.pack(side=tk.LEFT, anchor="w")
 
     custom_size_length_frame = tk.Frame(custom_size_frame)
-    custom_size_length_frame.pack(side=tk.TOP, anchor='w')
+    custom_size_length_frame.pack(side=tk.TOP, anchor="w")
     custom_size_length_label = tk.Label(custom_size_length_frame, text="Length:")
-    custom_size_length_label.pack(side=tk.LEFT, anchor='w')
+    custom_size_length_label.pack(side=tk.LEFT, anchor="w")
     custom_size_length_entry = tk.Entry(
         custom_size_length_frame, textvariable=custom_image_size[1]
     )
-    custom_size_length_entry.pack(side=tk.LEFT, anchor='w')
+    custom_size_length_entry.pack(side=tk.LEFT, anchor="w")
 
     # Add a separator
     separator = tk.Frame(window, height=2, bd=1, relief=tk.SUNKEN)
@@ -145,19 +145,19 @@ def parse_args():
 
     # Add a label
     label = tk.Label(window, text="Select Sheet Size:")
-    label.pack(pady=5, padx=5, anchor='w')
+    label.pack(pady=5, padx=5, anchor="w")
 
     # Create radio buttons for the sheet size
     a4_radio = tk.Radiobutton(window, text="A4", variable=sheet_size, value="A4")
-    a4_radio.pack(pady=5, padx=5, anchor='w')
+    a4_radio.pack(pady=5, padx=5, anchor="w")
     letter_radio = tk.Radiobutton(
         window, text="Letter", variable=sheet_size, value="Letter"
     )
-    letter_radio.pack(pady=5, padx=5, anchor='w')
+    letter_radio.pack(pady=5, padx=5, anchor="w")
     legal_radio = tk.Radiobutton(
         window, text="Legal", variable=sheet_size, value="Legal"
     )
-    legal_radio.pack(pady=5, padx=5, anchor='w')
+    legal_radio.pack(pady=5, padx=5, anchor="w")
 
     # Add a separator
     separator = tk.Frame(window, height=2, bd=1, relief=tk.SUNKEN)
@@ -165,20 +165,20 @@ def parse_args():
 
     # Create entry fields for the margin size and dpi
     margin_size_frame = tk.Frame(window)
-    margin_size_frame.pack(pady=5, padx=5, anchor='w')
+    margin_size_frame.pack(pady=5, padx=5, anchor="w")
 
     margin_size_label = tk.Label(margin_size_frame, text="Margin Size:")
-    margin_size_label.pack(side=tk.LEFT, anchor='w')
+    margin_size_label.pack(side=tk.LEFT, anchor="w")
     margin_size_entry = tk.Entry(margin_size_frame, textvariable=margin_size)
-    margin_size_entry.pack(side=tk.LEFT, anchor='w')
+    margin_size_entry.pack(side=tk.LEFT, anchor="w")
 
     dpi_frame = tk.Frame(window)
-    dpi_frame.pack(pady=5, padx=5, anchor='w')
+    dpi_frame.pack(pady=5, padx=5, anchor="w")
 
     dpi_label = tk.Label(dpi_frame, text="DPI:")
-    dpi_label.pack(side=tk.LEFT, anchor='w')
+    dpi_label.pack(side=tk.LEFT, anchor="w")
     dpi_entry = tk.Entry(dpi_frame, textvariable=dpi)
-    dpi_entry.pack(side=tk.LEFT, anchor='w')
+    dpi_entry.pack(side=tk.LEFT, anchor="w")
 
     # Add a separator
     separator = tk.Frame(window, height=2, bd=1, relief=tk.SUNKEN)
@@ -186,31 +186,31 @@ def parse_args():
 
     # Create checkboxes for the boolean options
     verbose_checkbox = tk.Checkbutton(window, text="Verbose", variable=verbose)
-    verbose_checkbox.pack(pady=5, padx=5, anchor='w')
+    verbose_checkbox.pack(pady=5, padx=5, anchor="w")
 
     back_checkbox = tk.Checkbutton(window, text="Back card extraction", variable=back)
-    back_checkbox.pack(pady=5, padx=5, anchor='w')
+    back_checkbox.pack(pady=5, padx=5, anchor="w")
 
     exclude_player_card_backs_checkbox = tk.Checkbutton(
         window,
         text="Exclude common player card backs",
         variable=exclude_player_card_backs,
     )
-    exclude_player_card_backs_checkbox.pack(pady=5, padx=5, anchor='w')
+    exclude_player_card_backs_checkbox.pack(pady=5, padx=5, anchor="w")
 
     exclude_encounter_card_backs_checkbox = tk.Checkbutton(
         window,
         text="Exclude common encounter card backs",
         variable=exclude_encounter_card_backs,
     )
-    exclude_encounter_card_backs_checkbox.pack(pady=5, padx=5, anchor='w')
+    exclude_encounter_card_backs_checkbox.pack(pady=5, padx=5, anchor="w")
 
     sharpen_text_checkbox = tk.Checkbutton(  # Checkbox for sharpening text
         window,
         text="Sharpen Text (Experimental)",
         variable=sharpen_text,
     )
-    sharpen_text_checkbox.pack(pady=5, padx=5, anchor='w')
+    sharpen_text_checkbox.pack(pady=5, padx=5, anchor="w")
 
     # Create a button to start the script
     args = argparse.Namespace()
@@ -245,7 +245,7 @@ def parse_args():
         window.quit()
 
     start_button = tk.Button(window, text="Start script", command=start_script)
-    start_button.pack(pady=10, padx=10, anchor='w')
+    start_button.pack(pady=10, padx=10, anchor="w")
 
     # Handle the window close event
     def on_close():
@@ -272,7 +272,9 @@ def build_dict(obj, result):
                     gmnotes = json.loads(obj["GMNotes"]) if "GMNotes" in obj else None
                     arkhamdb_id = gmnotes["id"] if gmnotes else None
                 except json.decoder.JSONDecodeError:
-                    logging.warning(f"JSON decode error for the following object: {obj}")
+                    logging.warning(
+                        f"JSON decode error for the following object: {obj}"
+                    )
                     arkhamdb_id = None
             obj_key = arkhamdb_id if arkhamdb_id else obj["Nickname"]
             # If the nickname is not yet in the result, add it with a new dictionary as value
@@ -361,8 +363,8 @@ def extract_sced_card(
 
 def extract_images(args):
     if args.card_quantity_source == "arkhamdb":
-        all_cards_data = json.load(open('cards.json', "r"))
-    
+        all_cards_data = json.load(open("cards.json", "r"))
+
     # Load the JSON data
     data = json.load(open(args.filepath, "r"))
 
@@ -410,7 +412,8 @@ def extract_images(args):
             # Using arkhamdb_id, get the quantity of the card using the ArkhamDB API
             if arkhamdb_id:
                 card_data = next(
-                    (item for item in all_cards_data if item["code"] == arkhamdb_id), None
+                    (item for item in all_cards_data if item["code"] == arkhamdb_id),
+                    None,
                 )
                 quantity = card_data["quantity"] if "quantity" in card_data else 1
                 pack_code = card_data["pack_code"] if "pack_code" in card_data else None
@@ -420,18 +423,20 @@ def extract_images(args):
 
             for i in range(quantity):
                 images[f"{arkhamdb_id}_{i}"] = face_card
-                logging.info(f"Added face card from the {pack_code} pack for {each['Nickname']}")
+                logging.info(
+                    f"Added face card from the {pack_code} pack for {each['Nickname']}"
+                )
                 if args.back:
                     # Check if the card has a common back based on the url
                     if args.exclude_encounter_card_backs:
                         if (
                             each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_ENCOUNTER_BACK_URL or
-                            each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_ENCOUNTER_BACK_URL[:-1] or
-                            each["CustomDeck"][custom_deck_key]["FaceURL"]
-                            == COMMON_ENCOUNTER_BACK_URL or
-                            each["CustomDeck"][custom_deck_key]["FaceURL"]
+                            == COMMON_ENCOUNTER_BACK_URL
+                            or each["CustomDeck"][custom_deck_key]["BackURL"]
+                            == COMMON_ENCOUNTER_BACK_URL[:-1]
+                            or each["CustomDeck"][custom_deck_key]["FaceURL"]
+                            == COMMON_ENCOUNTER_BACK_URL
+                            or each["CustomDeck"][custom_deck_key]["FaceURL"]
                             == COMMON_ENCOUNTER_BACK_URL[:-1]
                         ):
                             continue
@@ -439,17 +444,19 @@ def extract_images(args):
                     if args.exclude_player_card_backs:
                         if (
                             each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_PLAYER_BACK_URL or
-                            each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_PLAYER_BACK_URL[:-1] or
-                            each["CustomDeck"][custom_deck_key]["FaceURL"]
-                            == COMMON_PLAYER_BACK_URL or
-                            each["CustomDeck"][custom_deck_key]["FaceURL"]
+                            == COMMON_PLAYER_BACK_URL
+                            or each["CustomDeck"][custom_deck_key]["BackURL"]
+                            == COMMON_PLAYER_BACK_URL[:-1]
+                            or each["CustomDeck"][custom_deck_key]["FaceURL"]
+                            == COMMON_PLAYER_BACK_URL
+                            or each["CustomDeck"][custom_deck_key]["FaceURL"]
                             == COMMON_PLAYER_BACK_URL[:-1]
                         ):
                             continue
                     images[f"{arkhamdb_id}_{i}_back"] = back_card
-                    logging.info(f"Added back card from the {pack_code} pack for {each['Nickname']}")
+                    logging.info(
+                        f"Added back card from the {pack_code} pack for {each['Nickname']}"
+                    )
         elif args.card_quantity_source == "tts_saved_object":
             quantity = each["quantity"]
             for i in range(quantity):
@@ -460,12 +467,12 @@ def extract_images(args):
                     if args.exclude_encounter_card_backs:
                         if (
                             each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_ENCOUNTER_BACK_URL or
-                            each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_ENCOUNTER_BACK_URL[:-1] or
-                            each["CustomDeck"][custom_deck_key]["FaceURL"]
-                            == COMMON_ENCOUNTER_BACK_URL or
-                            each["CustomDeck"][custom_deck_key]["FaceURL"]
+                            == COMMON_ENCOUNTER_BACK_URL
+                            or each["CustomDeck"][custom_deck_key]["BackURL"]
+                            == COMMON_ENCOUNTER_BACK_URL[:-1]
+                            or each["CustomDeck"][custom_deck_key]["FaceURL"]
+                            == COMMON_ENCOUNTER_BACK_URL
+                            or each["CustomDeck"][custom_deck_key]["FaceURL"]
                             == COMMON_ENCOUNTER_BACK_URL[:-1]
                         ):
                             continue
@@ -473,12 +480,12 @@ def extract_images(args):
                     if args.exclude_player_card_backs:
                         if (
                             each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_PLAYER_BACK_URL or 
-                            each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_PLAYER_BACK_URL[:-1] or
-                            each["CustomDeck"][custom_deck_key]["FaceURL"]
-                            == COMMON_PLAYER_BACK_URL or
-                            each["CustomDeck"][custom_deck_key]["FaceURL"]
+                            == COMMON_PLAYER_BACK_URL
+                            or each["CustomDeck"][custom_deck_key]["BackURL"]
+                            == COMMON_PLAYER_BACK_URL[:-1]
+                            or each["CustomDeck"][custom_deck_key]["FaceURL"]
+                            == COMMON_PLAYER_BACK_URL
+                            or each["CustomDeck"][custom_deck_key]["FaceURL"]
                             == COMMON_PLAYER_BACK_URL[:-1]
                         ):
                             continue
@@ -492,10 +499,16 @@ def arrange_images(images, args):
     def convert_size_to_new_dpi(size, old_dpi, new_dpi):
         ratio = new_dpi / old_dpi
         return (int(size[0] * ratio), int(size[1] * ratio))
-    
+
     dpi = args.dpi
-    converted_card_sizes = {key: convert_size_to_new_dpi(value, 300, dpi) for key, value in CARD_SIZES.items()}
-    converted_sheet_sizes = {key: convert_size_to_new_dpi(value, 300, dpi) for key, value in SHEET_SIZES.items()}
+    converted_card_sizes = {
+        key: convert_size_to_new_dpi(value, 300, dpi)
+        for key, value in CARD_SIZES.items()
+    }
+    converted_sheet_sizes = {
+        key: convert_size_to_new_dpi(value, 300, dpi)
+        for key, value in SHEET_SIZES.items()
+    }
 
     # Define the size of the images and the page (in pixels)
     if args.custom_image_size:
