@@ -25,7 +25,10 @@ CARD_SIZES = {"standard": (734, 1045), "mini": (500, 734)}
 
 # Define common card back urls
 COMMON_ENCOUNTER_BACK_URL = "https://i.imgur.com/sRsWiSG.jpg/"
-COMMON_PLAYER_BACK_URL = "https://i.imgur.com/EcbhVuh.jpg/"
+COMMON_PLAYER_BACK_URLS = [
+    "https://i.imgur.com/EcbhVuh.jpg/",
+    "https://steamusercontent-a.akamaihd.net/ugc/2342503777940352139/A2D42E7E5C43D045D72CE5CFC907E4F886C8C690/",
+]
 
 
 def parse_args():
@@ -444,13 +447,13 @@ def extract_images(args):
                     if args.exclude_player_card_backs:
                         if (
                             each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_PLAYER_BACK_URL
+                            in COMMON_PLAYER_BACK_URLS
                             or each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_PLAYER_BACK_URL[:-1]
+                            in COMMON_PLAYER_BACK_URLS[:-1]
                             or each["CustomDeck"][custom_deck_key]["FaceURL"]
-                            == COMMON_PLAYER_BACK_URL
+                            in COMMON_PLAYER_BACK_URLS
                             or each["CustomDeck"][custom_deck_key]["FaceURL"]
-                            == COMMON_PLAYER_BACK_URL[:-1]
+                            in COMMON_PLAYER_BACK_URLS[:-1]
                         ):
                             continue
                     images[f"{arkhamdb_id}_{i}_back"] = back_card
@@ -480,13 +483,13 @@ def extract_images(args):
                     if args.exclude_player_card_backs:
                         if (
                             each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_PLAYER_BACK_URL
+                            in COMMON_PLAYER_BACK_URLS
                             or each["CustomDeck"][custom_deck_key]["BackURL"]
-                            == COMMON_PLAYER_BACK_URL[:-1]
+                            in COMMON_PLAYER_BACK_URLS[:-1]
                             or each["CustomDeck"][custom_deck_key]["FaceURL"]
-                            == COMMON_PLAYER_BACK_URL
+                            in COMMON_PLAYER_BACK_URLS
                             or each["CustomDeck"][custom_deck_key]["FaceURL"]
-                            == COMMON_PLAYER_BACK_URL[:-1]
+                            in COMMON_PLAYER_BACK_URLS[:-1]
                         ):
                             continue
                     images[f"{each['Nickname']}_{i}_back"] = back_card
